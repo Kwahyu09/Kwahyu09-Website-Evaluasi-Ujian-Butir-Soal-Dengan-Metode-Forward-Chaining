@@ -1,0 +1,60 @@
+@extends('layoutdashboard.main')
+@section('container')
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Ubah Data {{ $title }}</h4>
+            </div>
+            <form action="/grupsoal/{{ $post->slug }}/update" method="post">
+                @method('put')
+                @csrf
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="hidden" name="nama_modul" id="nama_modul" value="{{ $nama_modul }}">
+                        <input type="hidden" name="slug_modul" id="slug_modul" value="{{ $slug_modul }}">
+                        <input type="hidden" name="user_id" id="user_id" value="{{ $post->user_id }}">
+                        <input type="hidden" name="modul_id" id="modul_id" value="{{ $post->modul_id }}">
+                        <label for="nama_grup">Nama Grup</label>
+                        <input type="text" name="nama_grup"
+                            class="form-control @error('nama_grup') is-invalid @enderror" id="nama_grup" required
+                            value="{{ old('nama_grup',$post->nama_grup) }}">
+                        @error('nama_grup')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="slug">Slug</label>
+                        <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror"
+                            id="slug" value="{{ old('slug', $post->slug) }}" readonly>
+                        @error('nama_modul')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="card-footer mr-3 mb-3 mt-0">
+                        <a class="ml-1 btn btn-danger float-right" href="/grupsoal/{{ $link }}">Batal</a>
+                        <button class="btn btn-primary float-right" type="submit">Ubah</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    const nama_modul = document.querySelector('#nama_modul');
+    const nama_grup = document.querySelector('#nama_grup');
+    const slug_modul = document.querySelector('#slug_modul');
+    const slug = document.querySelector('#slug');
+
+    nama_grup.addEventListener('change', function () {
+        fetch('/grupsoal/create/' + slug_modul.value + '/checkSlug?nama_grup=' + nama_grup.value + ' ' +
+                nama_modul.value)
+            .then(response => response.json())
+            .then(data => slug.value = data.slug)
+    });
+</script>
+@endsection
