@@ -9,16 +9,11 @@
 
 ## Website Evaluasi Ujian Online Berbasis Laravel
 
-Webiste ini merupakan website yang digunakan dosen untuk melihat evaluasi soal ujiannya melalui jawaban dari mahasiswa. sistem ini juga terdapat menu ujiannya yang digunakan mahasiswa untuk melakukan pengambilan nilai pada suatu Mata Kuliah.
+Webiste ini merupakan website lanjutan dari projek ujian online yang digunakan dosen untuk melakukan ujian serta menambahkan fitur evaluasi kepada mahasiswa dengan tipe ujian pilihan ganda dengan pilihan jawaban ada 5, melihat evaluasi soal ujiannya melalui jawaban dari mahasiswa. sistem ini juga terdapat menu ujiannya yang digunakan mahasiswa untuk melakukan pengambilan nilai pada suatu Mata Kuliah.
+fitur evaluasi di disistem ini terdapar 3 kategori tingkat kesulitan soal yang digunakan dosen untuk melakukan evaluasi terhadap soal ujian untuk meningkatkan kualitas ujian
 
-# Cara Instal :
-1. Download dan Rarkan di file xampp kalian dan di folder htdocs atau dimana pun bisa
-2. Buat Database yang namanya db_evaluasi
-3. Untuk database siliahkan hubungi email saya krisnawahyudi2017@gmail.com
-4. Import databasenya atau bisa juga menggunakan command prompt kemudian tulis kode berikut php artisan migrate:fresh
-5. Buka command prompt jalankan perinta php artisan serve untuk menjalankan webiste di chrome ataupun aplikasi lainnya
+catatan : untuk mendapatkan folder Database silahkan HUBUNGI email "krisnawahyudi2017@gmail.com" .
 
-Selesai
 .
 
 ## Learning Laravel
